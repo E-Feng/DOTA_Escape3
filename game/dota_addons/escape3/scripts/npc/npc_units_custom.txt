@@ -1,0 +1,247 @@
+// https://moddota.com/forums/discussion/1415/combining-kv-files-using-base
+//#base "units/units.txt"
+#base "units/core_units.txt"
+
+"DOTAUnits"
+{
+	"Version" 	"1"
+
+  "npc_creep_patrol_big"
+  {        
+    // General   
+    //----------------------------------------------------------------                            
+    "Model"                 "models/items/undying/flesh_golem/frostivus_2018_undying_accursed_draugr_golem/frostivus_2018_undying_accursed_draugr_golem.vmdl" // Model.
+    "BaseClass"             "npc_dota_creature"
+    "Level"                 "7"
+    "ModelScale"            "1.2"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"              "patrol_unit_passive"
+    "Ability2"              ""
+    "Ability3"              ""
+    "Ability4"              ""
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"              "0"
+    "BoundsHullName"          "DOTA_HULL_SIZE_HERO"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "300"
+    
+    // Team
+    //----------------------------------------------------------------
+    //"TeamName"                  "DOTA_TEAM_BADGUYS"
+    //"CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+    //"CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    //"UnitRelationshipClass"             "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }
+  
+  "npc_techies"
+  {        
+    // General   
+    //----------------------------------------------------------------                            
+    "Model"                 "models/heroes/techies/techies.vmdl" // Model.
+    "BaseClass"             "npc_dota_creature"
+    "Level"                 "7"
+    "ModelScale"               "0.5"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"              "techies_passive"
+    "Ability2"              "techies_suicide_custom"
+    "Ability3"              "kill_radius_lua"
+    "Ability4"              ""
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"              "0"
+    "BoundsHullName"          "DOTA_HULL_SIZE_SMALL"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "300"
+
+    // Mana and Health
+    //----------------------------------------------------------------
+    "StatusHealth"                "10000"
+    "StatusMana"                  "1" 
+
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "Wearable1"
+        {
+          "ItemDef" "490"
+        }
+        "Wearable2"
+        {
+          "ItemDef" "491"
+        }
+        "Wearable3"
+        {
+          "ItemDef" "492"
+        }
+        "Wearable4"
+        {
+          "ItemDef" "487"
+        }
+        "Wearable5"
+        {
+          "ItemDef" "489"
+        }
+      }
+    }
+  }
+
+  "npc_dummy_mango"
+  {        
+    // General   
+    //----------------------------------------------------------------                            
+    "Model"                 "models/props_gameplay/mango.vmdl" // Model.
+    "BaseClass"             "npc_dota_creature"
+    "Level"                 "7"
+    "ModelScale"               "1"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"              "mango_dummy_passive"
+    "Ability2"              ""
+    "Ability3"              ""
+    "Ability4"              ""
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"              "24"
+    "BoundsHullName"          "DOTA_HULL_SIZE_SMALL"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "300"
+    "MovementTurnRate"          "0.3"
+  }
+
+  "npc_magnus"
+  {        
+    // General   
+    //----------------------------------------------------------------                            
+    "Model"                 "models/heroes/magnataur/magnataur.vmdl" // Model.
+    "BaseClass"             "npc_dota_creature"
+    "Level"                 "7"
+    "ModelScale"               "1"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"              "patrol_unit_passive"
+    "Ability2"              ""
+    "Ability3"              ""
+    "Ability4"              ""
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"              "0"
+    "BoundsHullName"          "DOTA_HULL_SIZE_SMALL"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "300"
+
+    // Mana and Health
+    //----------------------------------------------------------------
+    "StatusHealth"                "10000"
+    "StatusMana"                  "1" 
+
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "Wearable1"
+        {
+          "ItemDef" "326"
+        }
+        "Wearable2"
+        {
+          "ItemDef" "327"
+        }
+        "Wearable3"
+        {
+          "ItemDef" "328"
+        }
+        "Wearable4"
+        {
+          "ItemDef" "329"
+        }
+        "Wearable5"
+        {
+          "ItemDef" "330"
+        }
+      }
+    }
+  }
+
+  "npc_void_spirit"
+  {        
+    // General   
+    //----------------------------------------------------------------                            
+    "Model"                 "models/heroes/void_spirit/void_spirit.vmdl" // Model.
+    "BaseClass"             "npc_dota_creature"
+    "Level"                 "7"
+    "ModelScale"               "1"
+    
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"              "patrol_unit_passive"
+    "Ability2"              ""
+    "Ability3"              ""
+    "Ability4"              ""
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"              "0"
+    "BoundsHullName"          "DOTA_HULL_SIZE_SMALL"
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"              "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "300"
+
+    // Mana and Health
+    //----------------------------------------------------------------
+    "StatusHealth"                "10000"
+    "StatusMana"                  "1" 
+
+    "Creature"
+    {
+      "AttachWearables"
+      {
+        "Wearable1"
+        {
+          "ItemDef" "686"
+        }
+        "Wearable2"
+        {
+          "ItemDef" "687"
+        }
+        "Wearable3"
+        {
+          "ItemDef" "688"
+        }
+        "Wearable4"
+        {
+          "ItemDef" "689"
+        }
+        "Wearable5"
+        {
+          "ItemDef" "690"
+        }
+      }
+    }
+  }
+}    

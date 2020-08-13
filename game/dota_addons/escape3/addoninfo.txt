@@ -1,0 +1,33 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	TeamCount = 2
+	maps = 
+	[
+		"escape_map3",
+	]
+	IsPlayable = 1
+	PenaltiesEnabled = 0
+	CheckAFKPlayers = 1
+	HeroGuidesSupported = 1
+	map_options = 
+	[
+		{
+			MaxPlayers = 10
+			map = "escape_map3"
+		},
+	]
+	HideInTools = false
+	IsTemplate = false
+	DefaultMap = ""
+	Default_Keys = [  ]
+	DisableIK = false
+	EnablePickRules = false
+	EventGame = false
+	hero_picker = 
+	{
+	}
+	ForceDefaultGuide = true
+	MinimalPrecache = false
+	MinPlayers = 1
+	MaxPlayers = 10
+}

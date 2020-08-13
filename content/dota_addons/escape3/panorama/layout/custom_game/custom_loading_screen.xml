@@ -1,0 +1,148 @@
+<root> 
+	<styles>
+		<include src="file://{resources}/styles/custom_game/custom_loading_screen.css"/>
+		<include src="file://{resources}/styles/custom_game/leaderboard.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/leaderboard.js" />
+		<include src="file://{resources}/scripts/custom_game/leaderboard_header.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="LeaderboardRow">
+			<Panel class="LeaderboardEntry">
+				<Panel id="RankContainer" class="ScoreCol_Rank ScoreboardPanel">
+					<Label id="Rank" text="999" />
+				</Panel>
+				<Panel id="TimeContainer" class="ScoreCol_Time ScoreboardPanel">
+					<Label id="Time" text="999" />
+				</Panel>
+				<Panel id="PlayersContainer" class="ScoreCol_Players ScoreboardPanel">
+					<Label id="Players" text="999" />
+				</Panel>
+				<Panel id="DeathsContainer" class="ScoreCol_Deaths ScoreboardPanel">
+					<Label id="DeathCount" text="999" />
+				</Panel>
+				<Panel id="LivesContainer" class="ScoreCol_Lives ScoreboardPanel">
+					<Label id="Lives" text="999" />
+				</Panel>
+				<Panel id="Level1Container" class="ScoreCol_Level1 ScoreboardPanel">
+					<Label id="Level1" text="999" />
+				</Panel>
+				<Panel id="Level2Container" class="ScoreCol_Level2 ScoreboardPanel">
+					<Label id="Level2" text="999" />
+				</Panel>
+				<Panel id="Level3Container" class="ScoreCol_Level3 ScoreboardPanel">
+					<Label id="Level3" text="999" />
+				</Panel>
+				<Panel id="Level4Container" class="ScoreCol_Level4 ScoreboardPanel">
+					<Label id="Level4" text="999" />
+				</Panel>
+				<Panel id="Level5Container" class="ScoreCol_Level5 ScoreboardPanel">
+					<Label id="Level5" text="999" />
+				</Panel>
+				<Panel id="Level6Container" class="ScoreCol_Level6 ScoreboardPanel">
+					<Label id="Level6" text="999" />
+				</Panel>
+				<Panel id="PlayerNamesContainer" class="ScoreCol_PlayerNames ScoreboardPanel">
+					<Label id="PlayerNames" text="999" />
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="AddonLoadingRoot">
+		<Panel class="BodyWindow">
+			<Panel class="TopWindow">
+				<Panel class="LeaderboardWindow">
+					<Panel class="LeaderboardTextWindow">
+						<Label class="LeaderboardText" text="Leaderboard" />
+						<Panel id="SeasonContainer">
+							<Label id="SeasonDate" text="" />
+							<Label id="SeasonText" text="Winners receive increasing patreon tier bonuses." />
+						</Panel>
+					</Panel>
+
+					<Panel class="LeaderboardLegend">
+						<Label class="LBLegendPanel ScoreCol_Rank" text="Rank" />
+						<Label class="LBLegendPanel ScoreCol_Time" text="Time" />
+						<Label class="LBLegendPanel ScoreCol_Players" text="Players" />
+						<Label class="LBLegendPanel ScoreCol_Deaths" text="Deaths" />
+						<Label class="LBLegendPanel ScoreCol_Lives" text="Lives" />
+						<Label class="LBLegendPanel ScoreCol_Level1" text="1" />
+						<Label class="LBLegendPanel ScoreCol_Level2" text="2" />
+						<Label class="LBLegendPanel ScoreCol_Level3" text="3" />
+						<Label class="LBLegendPanel ScoreCol_Level4" text="4" />
+						<Label class="LBLegendPanel ScoreCol_Level5" text="5" />
+						<Label class="LBLegendPanel ScoreCol_Level6" text="6" />
+						<Label class="LBLegendPanel ScoreCol_PlayerNames" text="Player Names" />
+					</Panel>
+					<Panel id="LeaderboardContainer" />
+				</Panel>
+
+				<Panel class="WinnersWindow">
+					<Label class="WinnersTitle" text="Winners" />
+					<Label class="WinnersPlaceholder" text="To be created..." />
+				</Panel>
+			</Panel>
+
+
+			<Panel class="BottomWindow">
+				<Panel class="RulesWindow"> 
+					<Label class="RulesTitle" text="Rules" />
+					<Label class="Rules" text="Avoid zombies. 
+						\nStay on the path. 
+						\nDon't cut corners. 
+						\nFeed mangos to the Undying (check mana). 
+						\nCheese grants extra life.
+						\nType '-votekill' to kill everyone (for afk/stuck)." style="" />
+				</Panel>
+
+
+				<Panel class="PatreonWindow">
+					<Panel class="PatreonHeader">
+						<Label class="PatreonTitle" text="Patreon Perks" />
+						<Image 
+							class="PatreonButton" 
+							onactivate="ExternalBrowserGoToURL('http://www.patreon.com/join/escapetheundyingdead')" 
+							src="file://{resources}/images/custom_game/patreon/patreon_button.png" 
+						/>
+					</Panel>
+					<Panel class="PerksContainer">
+						<Panel class="Perk">
+							<Label class="PerkTier" text="Tier 1" />
+							<Image class="PerkImage" src="file://{resources}/images/custom_game/patreon/patreon_get_cheese50.png" />
+							<Label class="PerkName" text="Golden Cheese Courier" />
+							<Label class="PerkText" text="50% chance to summon a courier to retrieve the extra cheeses and follow you." />
+						</Panel>
+						<Panel class="Perk">
+							<Label class="PerkTier" text="Tier 2" />
+							<Image class="PerkImage" src="file://{resources}/images/custom_game/patreon/patreon_larger_x.png" />
+							<Label class="PerkName" text="Mass Grave" />
+							<Label class="PerkText" text="Larger death beacon for easier revives." />
+						</Panel>
+						<Panel class="Perk">
+							<Label class="PerkTier" text="Tier 3" />
+							<Image class="PerkImage" src="file://{resources}/images/custom_game/patreon/patreon_wind_lace.png" />
+							<Label class="PerkName" text="Wind Lace" />
+							<Label class="PerkText" text="Grants bonus movespeed and turn rate." />
+						</Panel>
+						<Panel class="Perk">
+							<Label class="PerkTier" text="Tier 4" />
+							<Image class="PerkImage" src="file://{resources}/images/custom_game/patreon/patreon_phoenix_ash.png" />
+							<Label class="PerkName" text="Phoenix Ash" />
+							<Label class="PerkText" text="Use to respawn at the checkpoint when dead." />
+						</Panel>
+						<Panel class="Perk">
+							<Label class="PerkTier" text="Tier 5" />
+							<Image class="PerkImage" src="file://{resources}/images/custom_game/patreon/patreon_phase.png" />
+							<Label class="PerkName" text="Phase Boots" />
+							<Label class="PerkText" text="Grants phase and movespeed on use and automatic phase on revives." />
+						</Panel>																								
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
