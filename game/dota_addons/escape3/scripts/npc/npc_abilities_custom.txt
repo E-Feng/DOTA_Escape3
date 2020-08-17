@@ -291,7 +291,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"skewer_speed"					"950"
+				"skewer_speed"					"900"
 			}
 			"02"
 			{
