@@ -251,7 +251,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed_boost"				"250"
+				"speed_boost"				"550"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
