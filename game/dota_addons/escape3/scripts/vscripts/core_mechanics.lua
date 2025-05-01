@@ -41,18 +41,20 @@ function barebones:HeroKilled(hero, attacker, ability)
   -- Saves position of killed hero into table
   local playerIdx = hero:GetEntityIndex()
   -- If hero steps onto grass/lava origin is moved closer to path
-  hero:SetBaseMagicalResistanceValue(25)
+  -- hero:SetBaseMagicalResistanceValue(25)
   hero.deadHeroPos = hero:GetAbsOrigin()
 
-  if string.find(ability:GetClassname(), "ability") then
-    if ability:GetAbilityName() == "self_immolation" then
-      --print("Moving back location of hero and particle")
-      local shift = -30
-      local forVector = hero:GetForwardVector():Normalized()
-      local newDeadPos = hero:GetAbsOrigin() + forVector*shift
-      hero.deadHeroPos = newDeadPos
-      --print("Normalized forward vector: ", forVector)
-      --print("Altered position: ", newDeadPos)
+  if ability ~= nil then
+    if string.find(ability:GetClassname(), "ability") then
+      if ability:GetAbilityName() == "self_immolation" then
+        --print("Moving back location of hero and particle")
+        local shift = -30
+        local forVector = hero:GetForwardVector():Normalized()
+        local newDeadPos = hero:GetAbsOrigin() + forVector*shift
+        hero.deadHeroPos = newDeadPos
+        --print("Normalized forward vector: ", forVector)
+        --print("Altered position: ", newDeadPos)
+      end
     end
   end
   --print(hero:GetAbsOrigin())
@@ -92,6 +94,7 @@ function barebones:HeroRevived(deadhero, alivehero)
   -- Takes the average of alivehero and x location to respawn closer to path
   --local respawnLoc = AveragePos(alivehero:GetAbsOrigin(), xLocation)
   local respawnLoc = AveragePosBias(alivehero:GetAbsOrigin(), xLocation, 0.66)
+  -- respawnLoc.z = respawnLoc.z - 5
   deadhero:SetRespawnPosition(respawnLoc)
   deadhero:RespawnHero(false, false)
   deadhero:SetBaseMoveSpeed(300)
@@ -157,9 +160,7 @@ function barebones:ReviveAll()
   local respawnLoc = GameRules.Checkpoint
   local caster
   for i,hero in pairs(Players) do
-    if hero:IsAlive() then
-      hero:SetBaseMagicalResistanceValue(25)
-    end
+    hero:SetBaseMagicalResistanceValue(100)
     hero:SetRespawnPosition(respawnLoc)
     --print("Respawn location set to", respawnLoc)
     hero:RespawnHero(false, false)
@@ -249,6 +250,7 @@ function barebones:SpawnParticle(partvals)
   partvals[PAR_INDEX] = part
   table.insert(Extras, dummy:GetEntityIndex())
   print("Part", part, "spawned at", dummy:GetAbsOrigin())
+  print("-----------Particles done spawning------------")
 end
 
 -- This function spawns the cheeses for extra life in the beginning

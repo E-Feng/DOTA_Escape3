@@ -3,6 +3,8 @@
 //#base "abilities/example_abilities.txt"
 #base "abilities/core_abilities.txt"
 
+#base "../vscripts/ability_lua/skewer/magnus_skewer_lua.txt"
+
 "DOTAAbilities"
 {
 	"Version"   "1"
@@ -19,43 +21,15 @@
     "AbilityCooldown"       "1"
     "AbilityManaCost"       "0"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "pounce_distance"   "700"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "pounce_speed"      "933.33"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "pounce_acceleration" "7000.0"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "pounce_radius"     "95"
-      }
-      "05"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "pounce_damage"     "0"
-      }
-      "06"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "leash_duration"    "3.5"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "leash_radius"      "325"
-      }
+      "pounce_distance"                    "700"
+      "pounce_speed"                   "933"
+      "pounce_acceleration"                   "7000"
+      "pounce_radius"                   "95"
+      "pounce_damage"                   "0"
+      "leash_duration"                   "3.5"
+      "leash_radius"                   "325"
     }
   }
 
@@ -64,8 +38,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                 "pudge_meat_hook"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+    "BaseClass"                 "pudge_meat_hook"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
@@ -80,44 +54,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"4"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hook_speed"			"1450.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hook_width"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hook_distance"		"1300"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"vision_radius"		"500 500 500 500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"vision_duration"	"4.0 4.0 4.0 4.0"
-			}
-		}
+		"AbilityValues"
+    {
+      "hook_speed"                    "1450"
+      "hook_width"                   "100"
+      "hook_distance"                   "1300"
+      "vision_radius"                   "500"
+      "vision_duration"                   "4"
+			"damage"                         "0"
+    }    
+		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 
@@ -175,37 +127,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"				"300"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"300 400 500 600"
-				"LinkedSpecialBonus"		"special_bonus_unique_techies"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"silence_duration"			"1"
-			} 
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_cost"			"100"
-			} 
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.25"
-			}
-		}
+		"AbilityValues"
+    {
+      "radius"                    "300"
+      "silence_duration"                   "1"
+      "hp_cost"                   "100"
+      "duration"                   "1.25"
+			"damage"                         "400"
+    } 
+
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
@@ -241,24 +171,22 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3 4 5 6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_boost"				"550"
-			}
-		}
+		"AbilityValues"
+    {
+      "duration"                    "3 4 5 6"
+      "speed_boost"                   "550"
+    }
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
   //=================================================================================================================
 	"magnataur_skewer_custom"
+	// DO NOT CHANGE VALUES HERE
+	// CHANGE IN VSCRIPTS/ABILITY_LUA/SKEWER/.TXT
+	// CHANGE IN VSCRIPTS/ABILITY_LUA/SKEWER/.TXT
+	// CHANGE IN VSCRIPTS/ABILITY_LUA/SKEWER/.TXT
+	// CHANGE IN VSCRIPTS/ABILITY_LUA/SKEWER/.TXT
+	// CHANGE IN VSCRIPTS/ABILITY_LUA/SKEWER/.TXT
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -270,7 +198,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Magnataur.Skewer.Cast"
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -278,7 +206,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"0.25"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -328,20 +256,21 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"tool_attack_slow"				"10 20 30 40"
-			}	
+			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"skewer_cooldown"				"6"
-				"RequiresScepter"	"1"
+				"RequiresScepter"	"0"
 			}
 			"10"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"skewer_manacost"				"40"
-				"RequiresScepter"	"1"
+				"RequiresScepter"	"0"
 			}
 		}
+
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
@@ -373,76 +302,23 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"start_radius"				"90"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"end_radius"				"90"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"300"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"projectile_speed"			"800"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"remnant_watch_distance"	"450"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"remnant_watch_radius"		"100"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"watch_path_vision_radius"	"200"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"activation_delay"		"0.4"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impact_damage"			"0"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pull_duration"			"1.2 1.4 1.6 1.8"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pull_destination"		"44 50 56 62"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"7"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"think_interval"		"0.1"
-			}
-		}
+		"AbilityValues"
+    {
+      "start_radius"                    "90"
+      "end_radius"                   "90"
+      "radius"                   "300"
+      "projectile_speed"                   "800"
+			"remnant_watch_distance"                         "450"
+			"remnant_watch_radius"                         "100"
+			"watch_path_vision_radius"                         "200"
+			"activation_delay"                         "0.4"
+			"impact_damage"                         "0"
+			"pull_duration"                         "1.2"
+			"pull_destination"                         "44"
+			"duration"                         "7"
+			"think_interval"                         "0.1"
+    } 
+
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityCastGestureSlot"		"DEFAULT"
 	}
@@ -478,46 +354,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"phase_duration"		"1 2 3 4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"destination_fx_radius"	"183" // proportional to distance_offset
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"portals_per_ring"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"angle_per_ring_portal"	"180"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"first_ring_distance_offset"	"520"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"			"275" // proportional to distance_offset
-			}
-			//"07"
-			//{
-				//"var_type"						"FIELD_INTEGER"
-				//"second_ring_distance_offset"	"1040"
-			//}
-		}
+		"AbilityValues"
+    {
+      "phase_duration"                    "1 2 3 4"
+      "destination_fx_radius"                   "183"
+      "portals_per_ring"                   "0"
+      "angle_per_ring_portal"                   "180"
+			"first_ring_distance_offset"                         "520"
+			"damage_radius"                         "275"
+    } 
+
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 
@@ -550,64 +396,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"325"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 120 170 220"
-				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"buff_duration"			"10.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_absorb_amount"	"40 80 120 160"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"absorb_per_hero_hit"	"30 45 60 75"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"return_projectile_speed"	"900"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_charges"		"2"
-				"RequiresScepter"			"1"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charge_restore_time"		"16"
-				"RequiresScepter"			"1"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"silence_duration_scepter"			"2.0"
-			}
-		}
+		"AbilityValues"
+    {
+      "radius"                    "325"
+      "speed"                   "1000"
+      "damage"                   "100"
+      "buff_duration"                   "10"
+			"base_absorb_amount"                         "40"
+			"absorb_per_hero_hit"                         "30"
+			"return_projectile_speed"                         "900"
+			"max_charges"                         "5"
+			"charge_restore_time"                         "1"
+			"silence_duration_scepter"                         "2"
+    } 
 	}
 
 	//=================================================================================================================
@@ -639,53 +440,63 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"140"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"AbilityCharges"		""
-				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"AbilityChargeRestoreTime"	""
-				"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"min_travel_distance"	"200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_travel_distance"	"99999"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pop_damage_delay"		"1.25"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pop_damage"			"150 200 250"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow_pct"		"40 60 80"
-			}
-		}
+		// // Special
+		// //-------------------------------------------------------------------------------------------------------------
+		// "AbilitySpecial"
+		// {
+		// 	"01"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"radius"				"140"
+		// 	}
+		// 	"02"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"AbilityCharges"		""
+		// 		"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_9"
+		// 	}
+		// 	"03"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"AbilityChargeRestoreTime"	""
+		// 		"LinkedSpecialBonus"	"special_bonus_unique_void_spirit_1"
+		// 	}
+		// 	"04"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"min_travel_distance"	"200"
+		// 	}
+		// 	"05"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"max_travel_distance"	"99999"
+		// 	}
+		// 	"06"
+		// 	{
+		// 		"var_type"				"FIELD_FLOAT"
+		// 		"pop_damage_delay"		"1.25"
+		// 	}
+		// 	"07"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"pop_damage"			"150 200 250"
+		// 	}
+		// 	"08"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"movement_slow_pct"		"40 60 80"
+		// 	}
+		// }
+		"AbilityValues"
+    {
+      "radius"                    "140"
+      "min_travel_distance"                   "200"
+      "max_travel_distance"                   "99999"
+      "pop_damage_delay"                   "1.25"
+			"pop_damage"                         "150"
+			"movement_slow_pct"                         "40"
+    } 
+
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 	}
 
@@ -721,40 +532,49 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"grab_radius"			"275"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"275"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_pct"		"30"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"toss_damage"				"90 160 230 300"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"AbilityCharges"		""
-				"LinkedSpecialBonus"	"special_bonus_unique_tiny_2"
-			}
-		}
+		// "AbilitySpecial"
+		// {
+		// 	"01"
+		// 	{
+		// 		"var_type"				"FIELD_FLOAT"
+		// 		"duration"				"0.8"
+		// 	}
+		// 	"02"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"grab_radius"			"275"
+		// 	}
+		// 	"03"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"radius"				"275"
+		// 	}
+		// 	"04"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"bonus_damage_pct"		"30"
+		// 	}
+		// 	"05"
+		// 	{
+		// 		"var_type"					"FIELD_INTEGER"
+		// 		"toss_damage"				"90 160 230 300"
+		// 	}
+		// 	"06"
+		// 	{
+		// 		"var_type"				"FIELD_INTEGER"
+		// 		"AbilityCharges"		""
+		// 		"LinkedSpecialBonus"	"special_bonus_unique_tiny_2"
+		// 	}
+		// }
+		"AbilityValues"
+    {
+      "duration"                    "0.8"
+      "grab_radius"                   "275"
+      "radius"                   "275"
+      "bonus_damage_pct"                   "0"
+			"toss_damage"                         "0"
+    } 
+
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
@@ -784,22 +604,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"100 125 150 175"
-			}
-			
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0"
-			}
-		}
+		"AbilityValues"
+    {
+      "bonus_attack_speed"                    "0"
+      "duration"                   "2"
+    } 
+
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 }

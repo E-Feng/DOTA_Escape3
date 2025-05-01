@@ -121,19 +121,11 @@
     "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_ALL"
     "AbilityTextureName"        "ember_spirit_flame_guard"
 
-    // Special
-    "AbilitySpecial"
+    // Values
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"           "FIELD_INTEGER"
-        "range"             "50 100 150"
-      }
-      "02"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "damage"              "1"
-      }
+      "range"                    "50 100 150"
+      "damage"                   "1"
     }
 
     // Modifiers
@@ -189,19 +181,11 @@
     "AbilityTextureName"        "ember_spirit_flame_guard"
     "ScriptFile"				"abilities"
 
-    // Special
-    "AbilitySpecial"
+    // Values
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"           "FIELD_INTEGER"
-        "radius"             "50 60 100 150"
-      }
-      "02"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "rate"              "0.5 0.25 0.25 0.25"
-      }
+      "radius"                    "50 60 100 150"
+      "rate"                   "0.1 0.1 0.1 0.1"
     }
   }
 
@@ -215,18 +199,10 @@
     "AbilityUnitTargetType"      "DOTA_UNIT_TARGET_ALL"
     "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-      "01"
-      {
-        "var_type"      "FIELD_INTEGER"
-        "radius"      "0"
-      }
-      "02"
-      {
-        "var_type"       "FIELD_INTEGER"
-        "damage"        "2"
-      }
+      "radius"                    "0"
+      "damage"                   "2"
     }
 
     "Modifiers"

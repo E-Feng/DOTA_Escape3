@@ -120,6 +120,17 @@ function barebones:DamageFilter(keys)
 				return true
 			end
 		end
+
+		-- Damage filter to fix pudge hook
+		if damaging_ability then
+			if damaging_ability:GetName() == "pudge_meat_hook_custom" then
+				--PrintTable(keys)
+				keys.damage = 0
+
+				return true
+			end
+		end
+
 	else
 		damaging_ability = nil
 	end
@@ -146,6 +157,13 @@ function barebones:DamageFilter(keys)
 
 			victim:SetMinimumGoldBounty(gold_bounty)
 			victim:SetMaximumGoldBounty(gold_bounty)
+		end
+	end
+
+	-- Fix for trigger touching issue
+	if keys.entindex_attacker_const == keys.entindex_victim_const then
+		if victim.isSafe then
+			keys.damage = 0
 		end
 	end
 

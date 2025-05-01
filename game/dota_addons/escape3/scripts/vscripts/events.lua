@@ -141,6 +141,8 @@ function barebones:OnHeroInGame(hero)
 			end
 		end
 
+		--local abil1 = hero:AddAbility("magnus_skewer_lua")
+
 		local abil1 = hero:AddAbility("slark_pounce_custom")
 		local abil5 = hero:AddAbility("tiny_toss_custom")
 		local abil4 = hero:AddAbility("pa_phantom_strike_custom")
@@ -171,6 +173,14 @@ function barebones:OnHeroInGame(hero)
 		--hero:AddItemByName("item_patreon_wind_lace")
 		--hero:AddItemByName("item_patreon_phoenix_ash")
 		--hero:AddItemByName("item_patreon_phase")
+
+		if tostring(PlayerResource:GetSteamID(0)) == "76561197965802278" then
+			hero:AddItemByName("item_blink_custom")
+		end
+
+		if GIVE_BLINK then
+			hero:AddItemByName("item_blink_custom")
+		end
 
 
 		-- Setting respawn if using debug
@@ -780,5 +790,7 @@ function barebones:OnPlayerChat(keys)
 				end
 			end
 		end
+	elseif string.sub(text, 1, 1) == "-" and (string.find(text, "vote") or string.find(text, "kick")) then
+		GameRules:SendCustomMessage("Type -votekill to start a vote to kill all for reset/stuck/afk.", 0, 1)
 	end
 end

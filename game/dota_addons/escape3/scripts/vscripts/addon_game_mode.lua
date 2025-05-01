@@ -41,6 +41,20 @@ function Precache(context)
   PrecacheResource("particle_folder", "particles/misc", context)
   PrecacheResource("particle_folder", "particles/beacons", context)
 
+  PrecacheResource("particle", "particles/units/heroes/hero_pudge/pudge_meathook.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_techies/techies_suicide.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_techies/techies_blast_off.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/astral_step/void_spirit_astral_step.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/dissimilate/void_spirit_dissimilate.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/pulse/void_spirit_pulse.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf", context)
+
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/aether_remnant/void_spirit_aether_remnant_watch.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/aether_remnant/void_spirit_aether_remnant_watch_ad.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/aether_remnant/void_spirit_aether_remnant_pull.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_void_spirit/aether_remnant/void_spirit_aether_remnant_pull_ad.vpcf", context)
+
 	-- Models can also be precached by folder or individually
 	-- PrecacheModel should generally used over PrecacheResource for individual models
   --PrecacheResource("model_folder", "particles/heroes/antimage", context)
@@ -72,6 +86,7 @@ function Precache(context)
 	-- Abilities can also be precached in this way despite the name
   PrecacheItemByNameSync("item_mango_custom", context)
   PrecacheItemByNameSync("item_cheese_custom", context)
+  PrecacheItemByNameSync("item_blink_custom", context)
 
   PrecacheItemByNameSync("item_patreon_chest", context)
   PrecacheItemByNameSync("item_patreon_get_cheese1", context)
@@ -86,8 +101,18 @@ function Precache(context)
   PrecacheItemByNameSync("slark_pounce_custom", context)
   PrecacheItemByNameSync("dark_seer_surge_custom", context)
   PrecacheItemByNameSync("magnataur_skewer_custom", context)
+  PrecacheItemByNameSync("magnus_skewer_lua", context)
   PrecacheItemByNameSync("void_spirit_dissimilate_custom", context)
   PrecacheItemByNameSync("void_spirit_astral_step_custom", context)
+
+  PrecacheItemByNameSync("techies_blast_off", context)
+  PrecacheItemByNameSync("void_spirit_dissimilate", context)
+  PrecacheItemByNameSync("void_spirit_astral_step", context)
+  PrecacheItemByNameSync("void_spirit_resonant_pulse", context)
+  PrecacheItemByNameSync("void_spirit_aether_remnant", context)
+  PrecacheItemByNameSync("pudge_meat_hook", context)
+  PrecacheItemByNameSync("phantom_assassin_phantom_strike", context)
+  PrecacheItemByNameSync("tiny_toss", context)
 
 	-- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
 	-- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way

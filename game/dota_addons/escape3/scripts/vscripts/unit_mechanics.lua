@@ -141,8 +141,15 @@ function barebones:CastLSA(unit, castPos, emitSound)
                                     FIND_ANY_ORDER, 
                                     false)
   for _,target in pairs(targets) do
-    --target:SetBaseMagicalResistanceValue(25)
-    target:ForceKill(true)
+    -- target:SetBaseMagicalResistanceValue(25)
+    --target:ForceKill(true)
+    local damageTable = {
+      victim = target,
+      attacker = unit,
+      damage = 1,
+      damage_type = DAMAGE_TYPE_PURE
+    }
+    ApplyDamage(damageTable)
   end
 end
 
@@ -202,13 +209,21 @@ function barebones:MagnusThinker(unit, entvals)
   local delay = entvals[MAG_DELAY]
   
   unit.pos = goal
-  local abil = unit:AddAbility("magnataur_skewer_custom")
+  local abil = unit:AddAbility("magnus_skewer_lua")
   abil:SetLevel(1)
+
+  --unit:SetControllableByPlayer(0, false)
+
+  --print("Magnus values: ", spawn, goal, rate, delay)
+  print("Magnus thinker set, starting...")
 
   Timers:CreateTimer(delay, function()
     if IsValidEntity(unit) then
+      --print("Magnus skewer vals: ", unit.pos, abil:GetAbilityName())
       unit:CastAbilityOnPosition(unit.pos, abil, -1)
-      unit.pos = unit.pos == spawn and goal or spawn
+      -- unit.pos = unit.pos == spawn and goal or spawn
+      unit.pos = CalcDist2D(unit.pos, spawn) <= 5 and goal or spawn
+
       return rate
     else
       return

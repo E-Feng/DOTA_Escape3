@@ -96,6 +96,23 @@ function barebones:OnGameInProgress()
 
 	-- Setting up gamescore data collection
 	WebApi:InitGameScore()
+
+	-- Setting up bot spawn for solo players
+	local nPlayers = PlayerResource:GetPlayerCount()
+	if nPlayers == 1 then
+		local playerId
+		for _,hero in pairs(Players) do
+			playerId = hero:GetPlayerID()
+		end
+
+		local randomHero = GetRandomHeroName()
+		local spawn = Entities:FindByName(nil, "checkpoint1"):GetAbsOrigin()
+
+		local bot = GameRules:AddBotPlayerWithEntityScript(randomHero, "Buddy", DOTA_TEAM_GOODGUYS, nil, false)
+		bot:SetControllableByPlayer(playerId, true)
+		FindClearSpaceForUnit(bot, spawn, true)
+		bot.safe = true
+	end
 end
 
 -- This function initializes the game mode and is called before anyone loads into the game
@@ -423,9 +440,9 @@ function barebones:InitGameMode()
                 {2, ENT_GATES, 0, "gate1_2a", "GateThinker", "gate1_2b", Vector(1, 0, 0), 1},                
               },
 							{ -- Level 2
-								{1, ENT_CHEES, 0, "cheese2_1", nil},      
+								{1, ENT_CHEES, 0, "cheese2_1", nil},  
 								{2, ENT_AOELS, 0, "lsa2_1", "AOEThinker", 2.5, 0.67, true},  -- Rate, delay
-								{2, ENT_AOELS, 0, "lsa2_2", "AOEThinker", 2.2, 0, true},  
+								{2, ENT_AOELS, 0, "lsa2_2", "AOEThinker", 2.2, 0, true},      
 								{2, ENT_AOELS, 0, "lsa2_3", "AOEThinker", 2.2, 1.1, true},  
 								{2, ENT_AOELS, 0, "lsa2_4", "AOEThinker", 2.5, 0, true},  
 								{2, ENT_AOELS, 0, "lsa2_5", "AOEThinker", 2.0, 0, true},  
@@ -450,7 +467,7 @@ function barebones:InitGameMode()
               },
 							{ -- Level 3
 								{1, ENT_CHEES, 0, "cheese3_1", nil}, 
-								{2, ENT_MAGNS, 0, "mag3_1a", "MagnusThinker", "mag3_1b", 2, 0},
+								{2, ENT_MAGNS, 0, "mag3_1a", "MagnusThinker", "mag3_1b", 2, 2},
 								{2, ENT_MAGNS, 0, "mag3_2a", "MagnusThinker", "mag3_2b", 4, 2},
 								{2, ENT_PATRL, 0, "p3_1a", "PatrolInitial", 27, 0.03, 400},
 								{1, ENT_MANGO, 0, "mango3_1", nil, false},
@@ -538,6 +555,16 @@ function barebones:InitGameMode()
                 {2, ENT_GATES, 0, "gate6_1a", "GateThinker", "gate6_1b", Vector(0, 1, 0), 12},
               }
             }
+		
+  -- Constants for EntList table and PartList
+  ENT_UNTIM = 1; ENT_TYPEN = 2; ENT_INDEX = 3; ENT_SPAWN = 4; ENT_RFUNC = 5;
+  PAR_INDEX = 1; PAR_FNAME = 2; PAR_SPAWN = 3; PAR_CTRLP = 4;
+
+	PAT_VECNM = 6; PAT_DELAY = 7; PAT_MVSPD = 8; PAT_TURND = 9;
+	MNG_RSPWN = 6;
+	GAT_MOVES = 6; GAT_ORIEN = 7; GAT_NUMBR = 8;
+	AOE_RATES = 6; AOE_DELAY = 7; AOE_SOUND = 8;
+	MAG_GOALS = 6; MAG_RATES = 7; MAG_DELAY = 8;
 
   -- Table for particles to spawn for each level {partname, ent location, part cp, savekey}
   PartList = {
@@ -549,8 +576,9 @@ function barebones:InitGameMode()
 								 {0, "particles/misc/ring2.vpcf", "00pudge_meat_hook_custom", 0},
                },
                { -- Level 3
-							 {0, "particles/misc/ring1.vpcf", "33dark_seer_surge_custom", 0},
-							},
+								 {0, "particles/misc/ring1.vpcf", "33dark_seer_surge_custom", 0},
+								 --{},
+							 },
 							 { -- Level 4
 							 	 {},
                },
@@ -562,16 +590,6 @@ function barebones:InitGameMode()
                  {},
                },
              }
-
-  -- Constants for EntList table and PartList
-  ENT_UNTIM = 1; ENT_TYPEN = 2; ENT_INDEX = 3; ENT_SPAWN = 4; ENT_RFUNC = 5;
-  PAR_INDEX = 1; PAR_FNAME = 2; PAR_SPAWN = 3; PAR_CTRLP = 4;
-
-	PAT_VECNM = 6; PAT_DELAY = 7; PAT_MVSPD = 8; PAT_TURND = 9;
-	MNG_RSPWN = 6;
-	GAT_MOVES = 6; GAT_ORIEN = 7; GAT_NUMBR = 8;
-	AOE_RATES = 6; AOE_DELAY = 7; AOE_SOUND = 8;
-	MAG_GOALS = 6; MAG_RATES = 7; MAG_DELAY = 8;
 
   -- Table for functions to run for each level
   FuncList = {

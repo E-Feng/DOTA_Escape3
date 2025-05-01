@@ -68,10 +68,18 @@ function modifier_kill_radius:OnIntervalThink()
       for _,target in pairs(targets) do
         --if target:GetAbsOrigin().z < 130 then
         if math.abs(target:GetAbsOrigin().z - caster:GetAbsOrigin().z) < 5 then
-          --target:SetBaseMagicalResistanceValue(25)
           target.isSafe = true
           target.tossDeath = false
-          target:ForceKill(true)
+          -- target:ForceKill(true)
+          -- target:SetBaseMagicalResistanceValue(25)
+
+          local damageTable = {
+            victim = target,
+            attacker = caster,
+            damage = 1,
+            damage_type = DAMAGE_TYPE_PURE
+          }
+          ApplyDamage(damageTable)
         end
       end       
     end 

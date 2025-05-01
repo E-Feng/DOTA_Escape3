@@ -1,7 +1,7 @@
 function OnStartSafety(trigger)
 	local ent = trigger.activator
 	if not ent then return end
-	--print(ent:GetName(), " has stepped on trigger")
+	print(ent:GetName(), " has stepped on trigger")
 	if ent:IsRealHero() and ent:IsAlive() then
 		ent.isSafe = true
 		ent:SetBaseMagicalResistanceValue(100)
@@ -62,6 +62,7 @@ function OnStartKill(trigger)
 	if not ent then return end
 	--print(ent:GetName(), " has stepped on trigger")
 	if ent:IsRealHero() and ent:IsAlive() then
+		print("Trigger OnStartKill killing...")
 		ent.isSafe = false
 		ent.tossDeath = true
 		ent:SetBaseMagicalResistanceValue(25)

@@ -68,7 +68,8 @@ function DropItemOnDeath(event)
                 -- Check if there is a container on ground, then position
                 local cont = newItem:GetContainer()
                 if not (cont == nil) then
-                  if CalcDist2D(cont:GetAbsOrigin(), newItem.deadPos) < 1 then
+                  local contPos = cont:GetAbsOrigin()
+                  if CalcDist2D(contPos, newItem.deadPos) < 25 or contPos.z > 500 then
                     local dummy = CreateUnitByName("npc_dummy_unit", cont:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
                     dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
                     dummy:AddNewModifier(dummy, nil, "modifier_phased", {})

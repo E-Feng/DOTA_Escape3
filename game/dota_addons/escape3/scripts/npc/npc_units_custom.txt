@@ -139,6 +139,7 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"              "patrol_unit_passive"
+    //"Ability1"              ""
     "Ability2"              ""
     "Ability3"              ""
     "Ability4"              ""
@@ -156,7 +157,7 @@
     // Mana and Health
     //----------------------------------------------------------------
     "StatusHealth"                "10000"
-    "StatusMana"                  "1" 
+    "StatusMana"                  "1000" 
 
     "Creature"
     {
